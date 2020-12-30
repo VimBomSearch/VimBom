@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		<meta name="viewport" content="width=device-width; initial-scale=1">
+<script type="text/javascript">
+      (function(){
+        // Выполняем код только на мобильных браузерах (на всякий случай)
+        if (typeof(window.orientation) !== 'undefined')
+        {
+          // Функция взята отсюда: https://makandracards.com/makandra/13743-detect-effective-horizontal-pixel-width-on-a-mobile-device-with-javascript
+          function getDeviceWidth()
+          {
+            var deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
+            // iOS returns available pixels, Android returns pixels / pixel ratio
+            // http://www.quirksmode.org/blog/archives/2012/07/more_about_devi.html
+            if (navigator.userAgent.indexOf('Android') >= 0 && window.devicePixelRatio)
+              deviceWidth = deviceWidth / window.devicePixelRatio;
+
+            return deviceWidth;
+          }
+
+          var deviceWidth = getDeviceWidth();
+          var maxWidth = 900;
+          
+          if (deviceWidth < maxWidth)
+          {
+            // Мои эксперименты на iPad 2 показали, что device-width всегда содержит значение ширины 
+            // экрана в книжной (portrait) ориентации (т.е. даже, если устройство находится в 
+            // альбомной (landscape) ориентации). Это же утверждалось в некоторых найденных мною статьях.
+            if (window.orientation == 0 || window.orientation == 180)
+              document.write('<meta name="viewport" content="width=device-width">');
+            else
+              document.write('<meta name="viewport" content="width=device-height">');
+          }
+          else
+            document.write('<meta name="viewport" content="width=' + maxWidth + '">');
+        }
+      })();
+    </script>
+    
+    <style type="text/css">
+      * { margin: 0; padding: 0; }
+      .content { min-width: 320px; max-width: 900px; background: #ffff99; }
+      .content div { border: 1px solid #f00; }
+    </style>
+
+
+</head>
+<body>
+<style>img[alt="www.000webhost.com"]{display:none;}</style>
+
+<script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
+
+<!-- VK Widget -->
+<div id="vk_article_579713025_107050"></div>
+
+<script type="text/javascript">
+VK.Widgets.Article("vk_article_579713025_107050", "@smartsenya-vimbom-obnovlenie-skoro");
+</script>
+
+ <div hidden class="content">
+      <div>
+
+      </div>
+    </div>
+
+</body>
+</html>
+
+
+
+        
